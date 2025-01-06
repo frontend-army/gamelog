@@ -1,0 +1,31 @@
+.main {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.statusSelect {
+  align-self: start;
+}
+
+.gameList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 150px);
+  justify-items: center;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.gameContainer {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.gameTitle {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
