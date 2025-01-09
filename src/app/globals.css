@@ -1,6 +1,24 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  --white: #FFF;
+  --black: #000;
+
+  --neutral-100: #4E556A;
+  --neutral-200: #454B5E;
+  --neutral-300: #3D4252;
+  --neutral-400: #343946;
+  --neutral-500: #2B2F3B;
+  --neutral-600: #22252E;
+  --neutral-700: #1A1C23;
+  --neutral-800: #111317;
+  --neutral-900: #09090C;
+
+  --primary-500: #895BF2;
+
+  --secondary-500: #FF9F6B;
+
 }
 
 @media (prefers-color-scheme: dark) {
