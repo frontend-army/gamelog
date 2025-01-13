@@ -1,0 +1,8 @@
+.navbarContainer {
+	padding: 1rem;
+	display: flex;
+	position: fixed;
+	top: 0;
+	background-color: var(--neutral-800);
+	width: 100%;
+}
