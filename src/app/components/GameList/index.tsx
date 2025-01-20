@@ -3,14 +3,20 @@ import { GAMES } from "./constants"
 
 import styles from "./styles.module.css"
 
-type Props = {
-	status: string
+interface Props {
+	status: string;
+	query: string;
 }
 
-export default function GameList({ status }: Props) {
+export default function GameList({ status, query }: Props) {
+	const filteredGames = GAMES.filter((game => 
+		game.status.includes(status) &&
+		game.name.toLowerCase().includes(query.toLowerCase() ?? '')
+	));
+
 	return (
 		<div className={styles.gameList}>
-			{GAMES.filter((game => game.status.includes(status))).map((game) => (
+			{filteredGames.map((game) => (
 				<Game key={game.name} game={game} />
 			))}
 		</div>

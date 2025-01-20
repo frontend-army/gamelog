@@ -6,6 +6,18 @@
   margin-top: 4rem;
 }
 
+.filterContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+		justify-content: center;
+	}
+}
+
 .statusSelect {
   align-self: start;
 }

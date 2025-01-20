@@ -1,11 +1,17 @@
 .container {
 	position: relative;
+
+	@media (max-width: 768px) {
+		display: flex;
+		justify-content: center;
+		flex: 1;
+	}
 }
 
 .selectButton {
 	width: 100%;
 	max-width: fit-content;
-	padding: 1.25rem .625rem;
+	padding: 1.25rem 2rem;
 	font-size: 1.25rem;
 	border-radius: 100px;
 	background-color: transparent;
@@ -15,6 +21,10 @@
 	gap: 1.25rem;
 	cursor: pointer;
 	text-transform: capitalize;
+
+	@media (max-width: 768px) {
+		justify-content: space-between;
+	}
 }
 
 .optionsContainer {

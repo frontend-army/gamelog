@@ -3,9 +3,14 @@ import cn from 'classnames';
 
 import styles from './style.module.css';
 
-type Props = {
-	game: any
-}
+interface Game {
+	name: string;
+	image: string;
+};
+
+interface Props {
+	game: Game;
+};
 
 export default function Game({ game }: Props) {
 	return (
