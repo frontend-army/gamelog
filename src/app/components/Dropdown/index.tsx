@@ -6,21 +6,29 @@ import chevron from "@/app/assets/chevron.svg";
 
 import styles from "./styles.module.css";
 import Image from "next/image";
+import { GAME_STATUS, GameStatusKey } from '@/app/types'
+import { useRouter, useSearchParams } from "next/navigation";
+
 
 type Props = {
-	options: any;
+	options: typeof GAME_STATUS;
 	placeholder: string;
-	onSelect?: any;
+	onSelect?: (optionKey: GameStatusKey) => void;
 }
 
 export default function Dropdown({ options, placeholder, onSelect }: Props) {
-	const [selected, setSelected] = useState();
+	const [selected, setSelected] = useState<GameStatusKey>();
 	const [isOpen, setIsOpen] = useState(false);
+	const router = useRouter();
+	const params = useSearchParams();
+	const queryParams = new URLSearchParams(params);
 
-	const selectOption = (option: any) => {
-		setSelected(option);
+	const selectOption = (optionKey: GameStatusKey) => {
+		setSelected(optionKey);
 		setIsOpen(false);
-		onSelect?.();
+		queryParams.set('status', optionKey);
+		router.push(`?${queryParams.toString()}`);
+		onSelect?.(optionKey);
 	}
 
 	return (
@@ -30,9 +38,9 @@ export default function Dropdown({ options, placeholder, onSelect }: Props) {
 			</button>
 			{isOpen &&
 				<div className={styles.optionsContainer}>
-					{options.map((option: any) =>
-						<button className={styles.option} key={option} onClick={() => selectOption(option)}>
-							{option}
+					{Object.entries(options).map(([key, value]) =>
+						<button className={styles.option} key={key} onClick={() => selectOption(key as GameStatusKey)}>
+							{value}
 						</button>
 					)}
 				</div>
