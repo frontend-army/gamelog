@@ -1,8 +1,8 @@
 export const GAME_STATUS = {
-  backlog: "Backlog",
   playing: "Playing",
-  completed: "Completed",
+  backlog: "Backlog",
   started: "Started",
+  completed: "Completed",
 } as const;
 
 export type GameStatusKey = keyof typeof GAME_STATUS;
