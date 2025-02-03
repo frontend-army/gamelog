@@ -11,9 +11,10 @@
 .selectButton {
 	width: 100%;
 	max-width: fit-content;
-	padding: 1.25rem 2rem;
-	font-size: 1.25rem;
-	border-radius: 100px;
+	padding: 0.75rem 1.25rem;
+	font-size: 1rem;
+	line-height: 1rem;
+	border-radius: 1.375rem;
 	background-color: transparent;
 	border: var(--neutral-100) 2px solid;
 	display: flex;
@@ -33,13 +34,12 @@
 	border-radius: .5rem;
 	display: flex;
 	flex-direction: column;
-	max-width: 12.5rem;
-	gap: .5rem;
-	padding: .625rem;
 	position: absolute;
-	top: 70px;
-	left: 10px;
+	top: 50px;
+	left: 0;
+	right: 0;
 	border: var(--neutral-100) 2px solid;
+	padding-block: 0.5rem;
 }
 
 .option {
@@ -49,4 +49,9 @@
 	border: none;
 	text-align: left;
 	text-transform: capitalize;
+	padding: 0.5rem 0.625rem;
+
+	&:hover {
+		background-color: var(--neutral-700);
+	}
 }

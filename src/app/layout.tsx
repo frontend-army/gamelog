@@ -1,17 +1,20 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Quicksand, Chakra_Petch } from "next/font/google";
 import "./globals.css";
 import "./css/texts.css";
 import Navbar from "./components/Navbar";
+import styles from "./layout.module.css";
+import { Footer } from "./components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const quicksand = Quicksand({
+  variable: "--font-quicksand",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const chakraPetch = Chakra_Petch({
+  variable: "--font-chakra-petch",
   subsets: ["latin"],
+  weight: "700",
 });
 
 export const metadata: Metadata = {
@@ -26,9 +29,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={`${quicksand.variable} ${chakraPetch.variable}`}>
         <Navbar />
-        {children}
+        <main className={styles.main}>{children}</main>
+        <Footer />
       </body>
     </html>
   );

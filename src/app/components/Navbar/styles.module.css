@@ -1,8 +1,14 @@
 .navbarContainer {
-	padding: 1rem;
+	padding: 0.5rem 2.5rem;
 	display: flex;
 	position: fixed;
 	top: 0;
 	background-color: var(--neutral-800);
 	width: 100%;
+	z-index: 1;
+}
+
+.navbarLogo {
+	height: 2.5rem;
+	width: auto;
 }
