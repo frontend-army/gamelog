@@ -13,16 +13,3 @@
 .statusSelect {
   align-self: start;
 }
-
-.gameContainer {
-  width: 150px;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.gameTitle {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
