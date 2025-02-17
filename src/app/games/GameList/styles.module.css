@@ -1,0 +1,26 @@
+.gameList {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+
+  position: relative;
+}
+
+.addToLibrary {
+  position: fixed;
+  bottom: 2rem;
+  right: 50%;
+  transform: translateX(50%);
+
+  padding: 0.9rem 2rem;
+  border-radius: 2rem;
+  background: var(--primary-500);
+  border: 2px solid transparent;
+  box-shadow: 0 1px 10px 0px black;
+
+  cursor: pointer;
+
+  &:hover {
+    border: 2px solid var(--secondary-500);
+  }
+}

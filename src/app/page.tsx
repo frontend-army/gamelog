@@ -1,5 +1,5 @@
 import styles from "./page.module.css";
-import GameList from "./components/GameList";
+import GameList from "./components/GameCategoryList";
 import Dropdown from "./components/Dropdown";
 import { GAME_STATUS, GameStatusKey } from "./types";
 import SearchBar from "./components/SearchBar";

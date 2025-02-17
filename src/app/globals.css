@@ -55,6 +55,11 @@ a {
   text-decoration: none;
 }
 
+button {
+  border: none;
+  background: none;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

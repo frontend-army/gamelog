@@ -3,10 +3,6 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-
-  &:hover .image {
-    transform: scale(1.05);
-  }
 }
 
 .gameTitle {
@@ -19,6 +15,10 @@
   object-fit: cover;
   cursor: pointer;
   transition: filter 250ms ease-in-out, transform 250ms ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 
   &.selected {
     filter: blur(1px) brightness(70%) grayscale(25%);
