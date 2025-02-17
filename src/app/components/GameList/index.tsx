@@ -10,13 +10,17 @@ interface Props {
 }
 
 export default function GameList({ status, query }: Props) {
-  const filteredGames = status
-    ? GAMES.filter(
-        (game) =>
-          game.status.includes(status) &&
-          game.name.toLowerCase().includes(query?.toLowerCase() ?? "")
-      )
-    : GAMES;
+  const filteredGames = GAMES.filter(
+        (game) => {
+          if (status)
+            return game.status.includes(status);
+          return true;
+        }
+      ).filter((game) => {
+        if (query !== '')
+          return game.name.toLowerCase().includes(query?.toLowerCase() ?? '');
+        return true;
+      });
 
   return (
     <>
