@@ -1,20 +1,17 @@
-.main {
-  padding: 3rem;
+.filterContainer {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  @media (max-width: 768px) {
+		justify-content: center;
+	}
 }
 
 .statusSelect {
   align-self: start;
-}
-
-.gameList {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 150px);
-  justify-items: center;
-  gap: 1rem;
-  justify-content: center;
 }
 
 .gameContainer {

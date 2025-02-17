@@ -1,0 +1,22 @@
+.searchBarContainer {
+  display: flex;
+  align-items: center;
+	padding: 0.75rem 1.25rem;
+  gap: .625rem;
+  border: 2px solid var(--neutral-100);
+  border-radius: 2rem;
+  max-width: 25rem;
+}
+
+.input {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  line-height: 1rem;
+  flex: 1;
+  min-width: 0;
+
+  &:focus, &:focus-visible {
+    outline: none;
+  }
+}

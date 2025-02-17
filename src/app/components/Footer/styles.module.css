@@ -1,0 +1,24 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--neutral-700);
+}
+
+.footerContent {
+  padding: 2.25rem;
+}
+
+.footerLegendWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  padding-block: 1rem;
+  background-color: var(--neutral-800);
+}
+
+.footerLegend {
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+}
