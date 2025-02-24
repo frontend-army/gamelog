@@ -21,6 +21,7 @@ export default function Game({ game }: Props) {
 				alt={game.name}
 				width={150}
 				height={200}
+				className={styles.image}
 			/>
 		</div>
 	);

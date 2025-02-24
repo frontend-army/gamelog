@@ -9,7 +9,7 @@ interface Props {
   query?: string;
 }
 
-export default function GameList({ status, query }: Props) {
+export default function GameCategoryList({ status, query }: Props) {
   const filteredGames = GAMES.filter(
         (game) => {
           if (status)
