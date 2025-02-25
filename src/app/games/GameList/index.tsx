@@ -22,17 +22,20 @@ export default function GameList({ games }: Props) {
     setSelectedGameIds(newSelectedGames);
   }
 
-  const handleAddItems = () => {
-    // TODO: Add to user's library
+  const handleAddItems = async () => {
+    const body = games.filter((game) => selectedGameIds.has(game.id));
+    const newItems = await fetch('api/library', { method: 'POST', body: JSON.stringify(body) })
+    console.log(newItems);
   }
 
   return (
     <div className={styles.gameList}>
-      {games.map((game) => (
+      {games?.map((game) => (
         <Game 
           key={game.name}
           game={{ image: game.background_image, name: game.name, id: game.id }}
           onSelect={handleSelectGame}
+          isSelected={selectedGameIds.has(game.id)}
         />
       ))}
       <button 
