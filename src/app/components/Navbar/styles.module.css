@@ -6,9 +6,20 @@
 	background-color: var(--neutral-800);
 	width: 100%;
 	z-index: 1;
+	justify-content: space-between;
 }
 
 .navbarLogo {
 	height: 2.5rem;
 	width: auto;
+}
+
+.addGamesLink {
+	background-color: var(--primary-500);
+	border-radius: 50px;
+	max-width: 200px;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }

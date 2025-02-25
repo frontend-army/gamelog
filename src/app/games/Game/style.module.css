@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  position: relative;
 }
 
 .gameTitle {
@@ -14,13 +15,13 @@
 .image {
   object-fit: cover;
   cursor: pointer;
-  transition: filter 250ms ease-in-out, transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
 
   &:hover {
     transform: scale(1.05);
   }
+}
 
-  &.selected {
-    filter: blur(1px) brightness(70%) grayscale(25%);
-  }
+.selected {
+  filter: sepia(100%) contrast(85%) opacity(80%) saturate(120%) hue-rotate(236deg);
 }
