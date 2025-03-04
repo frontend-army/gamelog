@@ -5,7 +5,7 @@ import { RawgResponse } from "./types";
 
 export default async function Games({ searchParams }: { searchParams: Promise<{ status: string; q: string }>; }) {
   const query = (await searchParams).q ?? '';
-  const gamesQuery = await fetch(`http:localhost:3000/api/games?search=${query}`);
+  const gamesQuery = await fetch(`${process.env.API_BASE_URL}/api/games?search=${query}`);
   const gamesResponse: RawgResponse = await gamesQuery.json();
 
   return (

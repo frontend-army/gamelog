@@ -3,22 +3,18 @@ import cn from 'classnames';
 
 import styles from './style.module.css';
 
-interface Game {
+interface Props {
 	name: string;
 	image: string;
 };
 
-interface Props {
-	game: Game;
-};
-
-export default function Game({ game }: Props) {
+export default function Game({ name, image }: Props) {
 	return (
 		<div className={styles.gameContainer}>
-			<h2 className={cn('title-3', styles.gameTitle)} title={game.name}>{game.name}</h2>
+			<h2 className={cn('title-3', styles.gameTitle)} title={name}>{name}</h2>
 			<Image
-				src={game.image}
-				alt={game.name}
+				src={image}
+				alt={name}
 				width={150}
 				height={200}
 				className={styles.image}

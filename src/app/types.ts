@@ -5,10 +5,54 @@ export const GAME_STATUS = {
   completed: "Completed",
 } as const;
 
-export interface Game {
+export interface IGame extends Partial<RawgGame> {
   id: number;
   name: string;
   image: string;
+  status?: GameStatusKey[];
 }
 
 export type GameStatusKey = keyof typeof GAME_STATUS;
+
+export interface RawgGame {
+  id:                 number;
+  slug:               string;
+  name:               string;
+  released:           Date;
+  tba:                boolean;
+  background_image:   string;
+  rating:             number;
+  rating_top:         number;
+  ratings:            AddedByStatus;
+  ratings_count:      number;
+  reviews_text_count: string;
+  added:              number;
+  added_by_status:    AddedByStatus;
+  metacritic:         number;
+  playtime:           number;
+  suggestions_count:  number;
+  updated:            Date;
+  esrb_rating:        EsrbRating;
+  platforms:          Platform[];
+}
+
+export interface AddedByStatus {
+  id?: string;
+}
+
+export interface EsrbRating {
+  id:   number;
+  slug: string;
+  name: string;
+}
+
+export interface Platform {
+  platform:     EsrbRating;
+  released_at:  string;
+  requirements: Requirements;
+}
+
+export interface Requirements {
+  minimum:     string;
+  recommended: string;
+}

@@ -1,7 +1,7 @@
 import styles from "./page.module.css";
 import GameList from "./components/GameCategoryList";
 import Dropdown from "./components/Dropdown";
-import { GAME_STATUS, GameStatusKey } from "./types";
+import { GAME_STATUS, GameStatusKey, IGame } from "./types";
 import SearchBar from "./components/SearchBar";
 
 export default async function Home({
@@ -16,13 +16,15 @@ export default async function Home({
     ...GAME_STATUS,
   };
 
+  const games: { games: IGame[] } = await fetch(`${process.env.API_BASE_URL}/api/library`).then((res) => res.json());
+
   return (
     <>
       <div className={styles.filterContainer}>
         <Dropdown options={options} placeholder="Select your option" />
         <SearchBar />
       </div>
-      <GameList status={query.status} query={query.q} />
+      <GameList status={query.status as GameStatusKey} query={query.q} games={games.games} />
     </>
   );
 }

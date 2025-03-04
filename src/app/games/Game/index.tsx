@@ -1,11 +1,12 @@
+'use client'
 import Image from 'next/image';
 import cn from 'classnames';
 
 import styles from './style.module.css';
-import { type Game } from '@/app/types';
+import { IGame } from '@/app/types';
 
 interface Props {
-	game: Game;
+	game: IGame;
 	onSelect: (gameId: number) => void;
 	isSelected: boolean;
 };

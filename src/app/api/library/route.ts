@@ -1,7 +1,7 @@
-import { Game } from "@/app/types";
+import { IGame } from "@/app/types";
 import { NextRequest } from "next/server";
 
-const games: Game[] = [];
+const games: IGame[] = [];
 
 export async function GET() {
 	return Response.json({ games })

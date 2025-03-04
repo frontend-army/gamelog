@@ -1,19 +1,19 @@
-import { GAME_STATUS, GameStatusKey } from "@/app/types";
+import { IGame, GAME_STATUS, GameStatusKey } from "@/app/types";
 import Game from "../Game";
-import { GAMES } from "./constants";
 
 import styles from "./styles.module.css";
 
 interface Props {
-  status: string;
+  games: IGame[];
+  status: GameStatusKey;
   query?: string;
 }
 
-export default function GameCategoryList({ status, query }: Props) {
-  const filteredGames = GAMES.filter(
+export default function GameCategoryList({ status, query, games }: Props) {
+  const filteredGames = games.filter(
         (game) => {
           if (status)
-            return game.status.includes(status);
+            return game?.status?.includes(status);
           return true;
         }
       ).filter((game) => {
@@ -33,9 +33,9 @@ export default function GameCategoryList({ status, query }: Props) {
             </h4>
             <div className={styles.gameList}>
               {filteredGames
-                .filter((game) => game.status.includes(key))
+                .filter((game) => game?.status?.includes(key as GameStatusKey))
                 .map((game) => (
-                  <Game key={game.name} game={game} />
+                  <Game key={game.name} name={game.name} image={game.background_image || ''} />
                 ))}
             </div>
           </section>
