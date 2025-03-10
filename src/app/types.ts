@@ -5,13 +5,6 @@ export const GAME_STATUS = {
   completed: "Completed",
 } as const;
 
-export interface IGame extends Partial<RawgGame> {
-  id: number;
-  name: string;
-  image: string;
-  status?: GameStatusKey[];
-}
-
 export type GameStatusKey = keyof typeof GAME_STATUS;
 
 export interface RawgGame {

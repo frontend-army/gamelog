@@ -1,20 +1,24 @@
-import { IGame } from "@/app/types";
+import { GAME_STATUS, RawgGame } from "@/app/types";
+import GameDB from "../db/models/game";
 import { NextRequest } from "next/server";
 
-const games: IGame[] = [];
+export async function GET(req: NextRequest) {
+	const filters = req.nextUrl.searchParams;
+	const status = new RegExp(filters.get('status') ?? '', 'i');
+	const q = new RegExp(filters.get('q') ?? '', 'i');
+	const games = await GameDB.find({ status, name: q });
 
-export async function GET() {
 	return Response.json({ games })
 }
 
 export async function POST(req: NextRequest) {
-	
-	// obtener los juegos del req
-	// storear en la db
-	// redirect a la pagina inicial con los juegos ya cargados
-	const gamesData = await(req.json())
+	const games: RawgGame[] = await req.json();
+	const createdGames = await GameDB.insertMany(games.map((game) => ({
+		externalId: game.id,
+		name: game.name,
+		status: GAME_STATUS.backlog.toLowerCase() as string,
+		image: game.background_image
+	})));
 
-	games.push(...gamesData);
-
-	return Response.json({ data: games });
+	return Response.json({ data: createdGames });
 }

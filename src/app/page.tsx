@@ -1,8 +1,9 @@
 import styles from "./page.module.css";
 import GameList from "./components/GameCategoryList";
 import Dropdown from "./components/Dropdown";
-import { GAME_STATUS, GameStatusKey, IGame } from "./types";
+import { GAME_STATUS, GameStatusKey } from "./types";
 import SearchBar from "./components/SearchBar";
+import { Game } from "./api/db/models/game";
 
 export default async function Home({
   searchParams,
@@ -16,7 +17,7 @@ export default async function Home({
     ...GAME_STATUS,
   };
 
-  const games: { games: IGame[] } = await fetch(`${process.env.API_BASE_URL}/api/library`).then((res) => res.json());
+  const games: { games: Game[] } = await fetch(`${process.env.API_BASE_URL}/api/library?` + new URLSearchParams(query)).then((res) => res.json());
 
   return (
     <>

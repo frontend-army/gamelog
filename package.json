@@ -6,10 +6,12 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "check-types": "tsc"
   },
   "dependencies": {
     "classnames": "^2.5.1",
+    "mongoose": "^8.12.1",
     "next": "15.1.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

@@ -1,9 +1,8 @@
 'use client'
 import { useState } from "react";
 import Game from "../Game";
-import { RawgGame } from "../types";
 import styles from './styles.module.css';
-import { GAME_STATUS } from "@/app/types";
+import { GAME_STATUS, RawgGame } from "@/app/types";
 import { useRouter } from "next/navigation";
 
 interface Props {
@@ -42,7 +41,7 @@ export default function GameList({ games }: Props) {
       {games?.map((game) => (
         <Game 
           key={game.name}
-          game={{ image: game.background_image, name: game.name, id: game.id }}
+          game={game}
           onSelect={handleSelectGame}
           isSelected={selectedGameIds.has(game.id)}
         />

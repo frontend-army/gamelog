@@ -3,10 +3,11 @@ import Image from 'next/image';
 import cn from 'classnames';
 
 import styles from './style.module.css';
-import { IGame } from '@/app/types';
+import type { Game } from '@/app/api/db/models/game';
+import { RawgGame } from '@/app/types';
 
 interface Props {
-	game: IGame;
+	game: RawgGame;
 	onSelect: (gameId: number) => void;
 	isSelected: boolean;
 };
@@ -17,7 +18,8 @@ export default function Game({ game, onSelect, isSelected }: Props) {
 			<h2 className={cn('title-3', styles.gameTitle)} title={game.name}>{game.name}</h2>
 			<button onClick={() => onSelect(game.id)}>
 				<Image
-					src={game.image}
+					// TODO: Add default image
+					src={game.background_image || ''}
 					alt={game.name}
 					width={150}
 					height={200}

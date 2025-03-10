@@ -1,10 +1,11 @@
-import { IGame, GAME_STATUS, GameStatusKey } from "@/app/types";
+import { GAME_STATUS, GameStatusKey } from "@/app/types";
 import Game from "../Game";
 
 import styles from "./styles.module.css";
+import { Game as GameType } from "@/app/api/db/models/game";
 
 interface Props {
-  games: IGame[];
+  games: GameType[];
   status: GameStatusKey;
   query?: string;
 }
@@ -35,7 +36,7 @@ export default function GameCategoryList({ status, query, games }: Props) {
               {filteredGames
                 .filter((game) => game?.status?.includes(key as GameStatusKey))
                 .map((game) => (
-                  <Game key={game.name} name={game.name} image={game.background_image || ''} />
+                  <Game key={game.name} name={game.name} image={game.image || ''} />
                 ))}
             </div>
           </section>
